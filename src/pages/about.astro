@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Main from "../components/Main.astro";
+import H1 from "../components/H1.astro";
+import type { getConfiguredImageService } from 'astro:assets';
+---
+
+<Layout title="About Rhythm Nation Blog">
+	<Main>
+		<H1 text="About Rythm Nation Blog"></H1>
+		<p>This is all about this blog!</p>
+		<br>
+		<p>The key concepts in this side are:-</p>
+		<br>
+		<ul><a href="https://docs.astro.build/en/guides/view-transitions/" class="text-blue-900 font-bold">Transitions</a>:-
+			<li>First: Add extension Auto Import to VS code to automatically find and suggest imports for you.</li>
+			<li>Then: Inside Layout.astro add ViewTransitions to the code and Auto Import adds the import code.</li>
+			<li>End result: all pages have smooth transitions between them</li>
+		</ul>
+		<br>
+		<br>
+		<p>Component Reuse:-</p>
+		<p>This is an example of DRY.</p>
+		<p>First: Look at 2 files: the Header.astro Component &amp; then home page index.astro; they both use the same &lt;a href&gt; code stored in 1 place!</p>
+		<p>Second: The single store of the Component is in the file "Aboutahref.astro" which contains the link (used in 2 places) to this About page</p>
+		<br>
+		<br>
+		<p><a href="https://docs.astro.build/en/guides/content-collections/" class="text-blue-900 font-bold">Content Collections</a>:-</p>
+		<br>
+		<p>A content collection is any top-level directory inside the reserved src/content project directory, such as src/content/newsletter and src/content/authors. Only content collections are allowed inside the src/content directory. This directory cannot be used for anything else.</p>
+		<p>To get the most out of your content collections, create a src/content/config.ts file in your project</p>
+		<p>First:- look at content/config.ts: ie: "import {"{"}z, defineCollection{"}"} from astro:content"</p>
+		<p>here z stands for ZOD; Defining datatypes with Zod- Astro uses Zod to power its content schemas.</p>
+		<p>See <a href="https://github.com/colinhacks/zod">Zods&apos; README</a> for complete documentation on how Zod works and what features are available.</p>
+		<p>Second:- coding:- IMPORTANT!</p>
+		<p>in this example: "src/content/xy67posts" the directory KEY (xy67posts) must be matched exactly in the config.ts source code here:-</p>
+		<p><span class="text-red-900 font-bold">export</span> <span class="text-blue-300 font-bold"> const</span> collections <span class="text-red-900 font-bold">=</span> {" {"} xy67posts: postsCollection {"}"};</p>
+	</Main>
+</Layout>
