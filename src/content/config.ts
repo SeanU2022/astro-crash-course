@@ -1,5 +1,5 @@
 // 1. Import utilities from ‘astro:content'
-// here z stands for ZOD 
+// here z represents ZOD to define properties
 import { defineCollection, z } from "astro:content"
 // import {format} from "date-fns"
 
@@ -13,29 +13,31 @@ import { defineCollection, z } from "astro:content"
 
 // 2. Define your collection(s)
 const postsCollection = defineCollection({
-    schema: z.object({
+    schema: ({ image }) => z.object({
         author: z.string(),
         date: z.string(),
-        image: z.string(),
+        image: image(),
         title: z.string(),
     }),
 });
-    
+
 // const postsCollection = defineCollection({
 //     schema: ({image}) =>
 //         z.object({
 //             author: z.string(),
 //             categories: z.array(z.string()),
-//             date: z
-//                 .string()
-//                 .transform(str => format(new Date(str), "MMMM d, yyyy")),
+//             // date: z
+//             //     .string()
+//             //     .transform(str => format(new Date(str), "MMMM d, yyyy")),
 //             featured: z.boolean().default(false),
-//             image: image(),
+//             // image: image(),
 //             title: z.string(),
 //         }),
 // })
 
 export const collections = {
     // authors: authorsCollection,
-    posts: postsCollection,
+    // NOTE: posts and 'posts' both work
+    // posts: postsCollection,
+    'posts': postsCollection,
 };
